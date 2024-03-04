@@ -1,9 +1,8 @@
 .StartScreen h1 {
     font-size: 3.5em;
-
 }
 
 .StartScreen p {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     color: #ecfa00;
 }
