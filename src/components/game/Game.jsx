@@ -1,11 +1,54 @@
 import './Game.css';
 
 // eslint-disable-next-line react/prop-types
-export const Game = ({ verifyLetter }) => {
+export const Game = ({
+  verifyLetter,
+  pickedWord,
+  pickedCategory,
+  letters,
+  score,
+  guesses,
+  wrongLetters,
+  guessedLetters,
+}) => {
   return (
-    <>
-      <div>Game</div>
-      <button onClick={verifyLetter}>Clique </button>
-    </>
+    <div className="game">
+      <p className="points">
+        <span>Pontuação: {score}</span>
+      </p>
+      <h1>Adivinhe a palavra</h1>
+      <h3>
+        Dica da palavra: <span>{pickedCategory}</span>
+      </h3>
+      <p>Você ainda tem {guesses} tentativa(s):</p>
+      <div className="wordContainer">
+        {letters.map((letter, index) => {
+         return guessedLetters.includes(letter) ? (
+            <span className="letter" key={index}>
+              {letter}
+            </span>
+          ) : (
+            <span className="blankSquare" key={index}></span>
+          );
+        })}
+        <span> </span>
+        <span></span>
+      </div>
+      <div className="letterContainer">
+        <p>Tente adivinha a letra da palavra</p>
+        <form action="">
+          <input type="text" name="letter" maxLength="1" required />
+          <button>Jogar!</button>
+        </form>
+      </div>
+      <div className="wrongLettersContainer">
+        <p>Letras já utilizadas:</p>
+        <span>
+          {wrongLetters.map((letter, index) => {
+            return <span key={index}>{letter}, </span>;
+          })}
+        </span>
+      </div>
+    </div>
   );
 };

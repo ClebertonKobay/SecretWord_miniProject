@@ -4,7 +4,8 @@ import './GameOver.css'
 export const GameOver = ({retry}) => {
   return (
     <div>
-      <button onClick={retry}></button>
+      <h1>Game Over</h1>
+      <button onClick={retry}>Retry</button>
     </div>
   )
 }
